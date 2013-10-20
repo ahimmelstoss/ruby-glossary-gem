@@ -1,4 +1,4 @@
-require 'nokigiri'
+require 'nokogiri'
 require 'open-uri'
 
 require_relative '../bin/generator.rb'
