@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'simplecov'
 
 
 require_relative '../bin/generator.rb'
