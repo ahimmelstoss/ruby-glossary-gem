@@ -31,5 +31,23 @@ describe 'Term' do
 		end
 	end
 
+	describe '.reset' do
+		it 'should return an empty array with no instances' do
+			Term.reset
+			Term.reset.should eq([])		
+		end
+	end
+
+	describe '.all' do
+		it 'should return all of the Term instances' do
+			term
+			Term.all
+			Term.all.should eq([term])		
+		end
+	end
 	
 end
+
+
+
+

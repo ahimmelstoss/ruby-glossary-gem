@@ -24,5 +24,12 @@ describe 'MoreInfo' do
 		end
 	end
 
+	describe '.example' do
+		it 'should give an example' do
+			moreinfo.example = "here is the example!"
+			moreinfo.example.should eq("here is the example!")
+		end
+	end
+
 	
 end
