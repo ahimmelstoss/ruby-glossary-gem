@@ -13,7 +13,7 @@ describe 'MainScraper' do
 		it 'scapes glossary page and instantiates Term' do
 			Term.reset
 			mainscraper.parse_glossary_page
-			Term.all.first.name.should eq("Arrays")
+			Term.all[9].name.should eq("puts vs. print")
 		end
 	end
 end
