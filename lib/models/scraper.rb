@@ -6,14 +6,19 @@ class MainScraper
 	end
 
 	def parse_glossary_page
-		self.glossary_page.css('div.glossary__category h2').each do |term|
-			Term.new.tap {|t| t.name = term.text.force_encoding('ASCII-8BIT').gsub(/(\n)/, "").delete("\xC2").delete("\xA0")}
+		self.glossary_page.css('div.glossary__category').each do |term|
+			Term.new.tap do |t| 
+				t.name = sanitize(term.css("h2"))
+				t.definition = sanitize(term.css('p.glossary-definition__definition').first)
+				
+			end
 		end
 	end
-end
 
-class TermScraper
-	
+	def sanitize(term_string)
+		term_string.text.force_encoding('ASCII-8BIT').gsub(/(\n)/, "").delete("\xC2").delete("\xA0")
+	end
+
 end
 
 class MoreScraper
