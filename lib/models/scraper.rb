@@ -21,12 +21,19 @@ class MainScraper
 		sanitize(term.css("h2"))
 	end
 
-	def set_mores(term)
-		sanitize(term.css("h3"))
-	end
-
 	def set_definition(term)
 		sanitize(term.css('p.glossary-definition__definition').first) if term.css("h2 p")
+	end
+
+	def set_examples(term)
+	end
+
+	def set_syntax(term)
+	end
+
+
+	def set_mores(term)
+		sanitize(term.css("h3"))
 	end
 
 	def sanitize(term_string)
