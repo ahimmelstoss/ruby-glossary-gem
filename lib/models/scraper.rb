@@ -8,13 +8,25 @@ class MainScraper
 	def parse_glossary_page
 		self.glossary_page.css('div.glossary__category').each do |term|
 			Term.new.tap do |t| 
-				t.name = sanitize(term.css("h2"))
-				t.definition = sanitize(term.css('p.glossary-definition__definition').first)
-				t.syntax_comment = sanitize(term.css('code.ruby span.comment'))
-				# t.syntax_code = sanitize(term.css('code.ruby').first) - t.syntax_comment
-				# t.syntax= "#{t.syntax_comment} #{t.syntax_code}"
+				t.name = set_name(term)
+				t.definition = set_definition(term)
+				t.examples = 
+				t.syntax = sanitize(term.css('code.ruby').first).gsub("\r", "\n")
+				t.example = sanitize(term.css('div.glossary-definition__syntax-example')[1]).gsub("\r", "\n").gsub("Example", "Example: ")
 			end
 		end
+	end
+
+	def set_name(term)
+		sanitize(term.css("h2"))
+	end
+
+	def set_mores(term)
+		sanitize(term.css("h3"))
+	end
+
+	def set_definition(term)
+		sanitize(term.css('p.glossary-definition__definition').first) if term.css("h2 p")
 	end
 
 	def sanitize(term_string)

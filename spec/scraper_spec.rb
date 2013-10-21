@@ -31,23 +31,17 @@ describe 'MainScraper' do
 #   	end
 #   end
 
-  describe '.syntax_comment' do 
+  describe '.syntax' do 
   	it 'sets and scrapes the syntax comment for the term' do 
-  		term.syntax_comment.should eq("# Array.new constructor")
+  		term.syntax.should eq("# Array.new constructor\nvariable = Array.new([repeat], [item])")
   	end
   end
 
-  describe '.syntax_code' do 
-  	it 'sets and scrapes the syntax comment for the term' do 
-  		term.syntax_code.should eq("variable = Array.new([repeat], [item])")
+  describe '.example' do 
+  	it 'sets and scrapes the examples for the term' do 
+  		term.example.should eq("Example: empty_arr = Array.new=>[]matzes = Array.new(3, 'Matz!')=> ['Matz!', 'Matz!', 'Matz!'']")
   	end
   end
-  
-  # describe '.example' do 
-  # 	it 'sets and scrapes the examples for the term' do 
-  # 		term.example.should eq()
-  # 	end
-  # end
 
 end
 
