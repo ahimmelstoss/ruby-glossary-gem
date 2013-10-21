@@ -1,5 +1,5 @@
 class Term
-	attr_accessor :name, :definition, :syntax_comment, :syntax, :example, :more
+	attr_accessor :name, :definition, :syntax_comment, :syntax_code, :syntax, :example, :more
 
   @@all=[]
 

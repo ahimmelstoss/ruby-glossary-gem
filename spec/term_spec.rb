@@ -23,6 +23,18 @@ describe 'Term' do
 			term.syntax.should eq("here is the syntax!")
 		end
 	end
+	describe '.syntax_comment' do
+		it 'should give term just the syntax comment' do
+			term.syntax_comment = "here is the syntax comment!"
+			term.syntax_comment.should eq("here is the syntax comment!")
+		end
+	end
+	describe '.syntax_code' do
+		it 'should give term just the syntax code' do
+			term.syntax_code = "here is the syntax code!"
+			term.syntax_code.should eq("here is the syntax code!")
+		end
+	end
 
 	describe '.more' do
 		it 'should give term a more' do

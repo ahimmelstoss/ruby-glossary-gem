@@ -37,6 +37,12 @@ describe 'MainScraper' do
   	end
   end
 
+  describe '.syntax_code' do 
+  	it 'sets and scrapes the syntax comment for the term' do 
+  		term.syntax_code.should eq("variable = Array.new([repeat], [item])")
+  	end
+  end
+  
   # describe '.example' do 
   # 	it 'sets and scrapes the examples for the term' do 
   # 		term.example.should eq()
