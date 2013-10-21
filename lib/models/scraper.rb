@@ -10,7 +10,9 @@ class MainScraper
 			Term.new.tap do |t| 
 				t.name = sanitize(term.css("h2"))
 				t.definition = sanitize(term.css('p.glossary-definition__definition').first)
-				
+				t.syntax_comment = sanitize(term.css('code.ruby span.comment'))
+				# t.syntax_code = sanitize(term.css('code.ruby').first) - t.syntax_comment
+				# t.syntax= "#{t.syntax_comment} #{t.syntax_code}"
 			end
 		end
 	end
