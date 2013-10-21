@@ -3,19 +3,14 @@ class Term
 
   @@all=[]
 
-  # extend Persistables
+  extend Persistables
 
   def initialize
     @@all<<self
   end
   
-
   def self.reset
     @@all=[]
-  end
-
-  def self.all
-    @@all
   end
 
 end

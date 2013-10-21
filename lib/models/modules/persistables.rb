@@ -1,15 +1,15 @@
 module Persistables
 
   def self.extended(the_class)
-    the_class.reset_all
+    the_class.reset
   end
 
   def reset
-    @@all=[]
+    @all=[]
   end
 
   def all
-    @@all
+    @all
   end
 
 end
